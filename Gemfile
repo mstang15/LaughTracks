@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+require 'simplecov'
+SimpleCov.start
 
 gem 'activerecord'
 gem 'pg', '~> 0.18'

@@ -1,15 +1,14 @@
-<% @comedians.each do |comedian| %>
- <ul>
-   <li><%= comedian.name %></li>
-   <li><%= comedian.age %></li>
-   <li><%= comedian.city %></li>
-   <% comedian.specials.each do |special| %>
-    <ul>
-       <li><%= special.name %></li>
-       <li><%= special.length %> minutes </li>
-       <li><img src="<%= special.photo %>"/></li>
-   </ul>
-   <% end %>
-
+<ul id="comedians">
+<main>
+  <% @comedians.each do |comedian| %>
+       <h1><%= comedian.name %></h1>
+       <p>Age: <%= comedian.age %></p>
+       <p>Hometown: <%= comedian.city %></p>
+       <% comedian.specials.each do |special| %>
+             <p>Special Name: <%= special.name %></p>
+             <p>Special Length: <%= special.length %> minutes </p>
+             <img src="<%= special.photo %>"/>
+       <% end %>
+  <% end %>
+</main>
 </ul>
-<% end %>

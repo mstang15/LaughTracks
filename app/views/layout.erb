@@ -8,20 +8,11 @@
     <div class = top_header>
       <h2 align = "center"> Comedians </h2>
     </div>
-
-    <main>
-      <% @comedians.each do |comedian| %>
-         <h1 align = "center"> <%= comedian.name %>
-         <p>Age: <%= comedian.age %></p>
-         <p>Hometown: <%= comedian.city %></p>
-         <% comedian.specials.each do |special| %>
-             <p>Special Name: <%= special.name %></p>
-             <p>Length: <%= special.length %> minutes </p>
-             <p><img src="<%= special.photo %>"/></p>
-         <% end %>
-      <% end %>
-    </main>
-
-
+    <div id="statistics" class = statistics>
+      <h2 align = "center"> Statistics</h2>
+      <h1 align = "left">Average Age: <%= Comedian.average_age %></h1>
+      <h1 align = "left">Average Special Length: <%= Special.average_run_length %> minutes</h1>
+    </div>
+      <%= yield %>
   </body>
 </html>
