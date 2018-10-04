@@ -1,5 +1,27 @@
 <html>
+
   <head>
+    <title>Comedians</title>
     <link rel = "stylesheet" type = "text/css" href= "main.css" />
   </head>
+  <body>
+    <div class = top_header>
+      <h2 align = "center"> Comedians </h2>
+    </div>
+
+    <main>
+      <% @comedians.each do |comedian| %>
+         <h1 align = "center"> <%= comedian.name %>
+         <p>Age: <%= comedian.age %></p>
+         <p>Hometown: <%= comedian.city %></p>
+         <% comedian.specials.each do |special| %>
+             <p>Special Name: <%= special.name %></p>
+             <p>Length: <%= special.length %> minutes </p>
+             <p><img src="<%= special.photo %>"/></p>
+         <% end %>
+      <% end %>
+    </main>
+
+
+  </body>
 </html>
