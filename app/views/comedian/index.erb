@@ -1,6 +1,7 @@
 <ul id="comedians">
 <main>
   <% @comedians.each do |comedian| %>
+    <div class="grid_block">
        <h1><%= comedian.name %></h1>
        <p>Age: <%= comedian.age %></p>
        <p>Hometown: <%= comedian.city %></p>
@@ -9,6 +10,7 @@
              <p>Special Length: <%= special.length %> minutes </p>
              <img src="<%= special.photo %>"/>
        <% end %>
+     </div>
   <% end %>
 </main>
 </ul>

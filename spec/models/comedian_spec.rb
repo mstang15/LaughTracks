@@ -25,5 +25,18 @@ RSpec.describe Comedian do
         expect(Comedian.average_age).to eq(average_age)
       end
     end
+
+    describe 'unique_cities' do
+      it'can create list of unique cities' do
+        tina = Comedian.create(name: "Tina Fey", age: 33, city: "Upper Darby, PA")
+        kevin = Comedian.create(name: "Kevin", age: 33, city: "Hershey, PA")
+        zach = Comedian.create(name: "Zach", age: 33, city: "Dallas, TX")
+        ellen = Comedian.create(name: "Ellen Degeneres", age: 22, city: "Metairie, PA")
+        steve = Comedian.create(name: "Steve ", age: 12, city: "Metairie, PA")
+        city_array =[tina.city, kevin.city, zach.city, ellen.city, steve.city]
+        unique_city_array = city_array.uniq
+        expect(Comedian.unique_cities).to eq(unique_city_array)
+      end
+    end
   end
 end

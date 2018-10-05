@@ -2,16 +2,17 @@
 
   <head>
     <title>Comedians</title>
-    <link rel = "stylesheet" type = "text/css" href= "main.css" />
+    <link rel ="stylesheet" type ="text/css" href="main.css" />
   </head>
   <body>
-    <div class = top_header>
+    <div class="top_header">
       <h2 align = "center"> Comedians </h2>
     </div>
-    <div id="statistics" class = statistics>
+    <div id="statistics" class=statistics>
       <h2 align = "center"> Statistics</h2>
       <h1 align = "left">Average Age: <%= Comedian.average_age %></h1>
       <h1 align = "left">Average Special Length: <%= Special.average_run_length %> minutes</h1>
+      <h1 align = "left">Cities: <%=Comedian.unique_cities.join(", ")%></h1>
     </div>
       <%= yield %>
   </body>

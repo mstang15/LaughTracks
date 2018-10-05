@@ -1,21 +1,5 @@
-main {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  background-color: white;
-  padding: 10px;
-}
-.grid-item {
-  background-color: white;
-  border-color: black;
-  padding: 0px;
-  font-size: 10px;
-  text-align: center;
-  border-radius: 5px;
-}
-
 body {
-  background-image: url("http://oi44.tinypic.com/1230egx.jpg");
+  background-image: url('/images/background.jpg');
   margin: 40px;
   height: 500px;
 
@@ -23,6 +7,27 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  /* background-color: white; */
+  /*padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  border-color: black; */
+}
+
+.grid_block {
+  line-height: 26px;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  border-color: black;
 }
 
 img {
