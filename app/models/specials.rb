@@ -5,4 +5,5 @@ class Special < ActiveRecord::Base
     def self.average_run_length
       average(:length)
     end
+
 end

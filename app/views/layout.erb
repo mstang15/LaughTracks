@@ -13,6 +13,7 @@
       <h1 align = "left">Average Age: <%= Comedian.average_age %></h1>
       <h1 align = "left">Average Special Length: <%= Special.average_run_length %> minutes</h1>
       <h1 align = "left">Cities: <%=Comedian.unique_cities.join(", ")%></h1>
+      <h1 align = "left">Total Specials: <%= Special.count%></h1>
     </div>
       <%= yield %>
   </body>

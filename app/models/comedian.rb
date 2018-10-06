@@ -10,4 +10,7 @@ class Comedian < ActiveRecord::Base
     distinct.pluck(:city)
   end
 
+  def self.total_comedian_specials
+    binding.pry
+  end
 end

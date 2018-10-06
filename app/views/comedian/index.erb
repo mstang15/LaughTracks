@@ -5,6 +5,7 @@
        <h1><%= comedian.name %></h1>
        <p>Age: <%= comedian.age %></p>
        <p>Hometown: <%= comedian.city %></p>
+       <p>Number of Specials: <%=comedian.specials.count%></p>
        <% comedian.specials.each do |special| %>
              <p>Special Name: <%= special.name %></p>
              <p>Special Length: <%= special.length %> minutes </p>

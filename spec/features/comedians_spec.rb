@@ -130,5 +130,50 @@ RSpec.describe "Comedians" do
         end
       end
     end
+
+      it 'shows the total number of specials for that comedian' do
+        whoopi = Comedian.create(name: "Whoopi Goldberg", age: 62, city: "New York City, NY")
+        whoopi_special_1 = whoopi.specials.create(name:"Fontaine", length: 52.01, photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/02/10/15/whoopi-goldberg.jpg")
+        whoopi_special_2 = whoopi.specials.create(name:"Broadway's Best", length: 45.08, photo: "https://i.ytimg.com/vi/ewlUJsgrByI/hqdefault.jpg")
+
+        visit '/comedians'
+
+        within ('#comedians') do
+          expect(page).to have_content(2)
+        end
+      end
+
+      it 'shows the comedians that have an age of 34' do
+        comedian_1 = Comedian.create(name: "Tina Fey", age: 48, city: "Upper Darby, PA")
+        comedian_2 = Comedian.create(name: "Ellen Degeneres", age: 34, city: "Metairie, PA")
+        comedian_3 = Comedian.create(name: "Whoopi Goldberg", age: 62, city: "New York City, NY")
+
+        visit '/comedians?age=34'
+
+        within ('#comedians') do
+          expect(page).to have_content(comedian_2.name)
+          expect(page).to_not have_content(comedian_1.name)
+        end
+      end
+
+      it 'shows the total amount of specials from all comedians' do
+        tina = Comedian.create(name: "Tina Fey", age: 48, city: "Upper Darby, PA")
+        tina_special_1 = tina.specials.create(name:"First Ladies of Comedy", length: 26.57, photo: "https://i.ytimg.com/vi/iKUFdzBulbk/maxresdefault.jpg" )
+        tina_special_2 = tina.specials.create(name:"Living While Funny", length: 36.57, photo: "https://static1.squarespace.com/static/59b7532ce3df28877c8ba604/t/5aa097489140b75cb2fb36ce/1520473932758/Fey%2C+Tina+3.jpg")
+
+        ellen = Comedian.create(name: "Ellen Degeneres", age: 60, city: "New York City, NY")
+        ellen_special_1 = ellen.specials.create(name:"Here and Now", length: 59.55, photo: "https://i.ytimg.com/vi/D8jHAMaTEug/hqdefault.jpg" )
+        ellen_special_2 = ellen.specials.create(name:"One Night Stand", length: 29.08, photo: "https://www.etonline.com/sites/default/files/styles/max_970x546/public/images/2016-01/640_ellen_degeneres-503726776.jpg?itok=xDfFM9In")
+
+        whoopi = Comedian.create(name: "Whoopi Goldberg", age: 62, city: "New York City, NY")
+        whoopi_special_1 = whoopi.specials.create(name:"Fontaine", length: 52.01, photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/02/10/15/whoopi-goldberg.jpg")
+        whoopi_special_2 = whoopi.specials.create(name:"Broadway's Best", length: 45.08, photo: "https://i.ytimg.com/vi/ewlUJsgrByI/hqdefault.jpg")
+
+        visit '/comedians'
+
+        within ('#statistics') do
+          expect(page).to have_content(6)
+        end 
+      end
   end
 end
