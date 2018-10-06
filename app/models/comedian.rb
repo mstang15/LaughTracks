@@ -3,14 +3,11 @@ class Comedian < ActiveRecord::Base
   has_many :specials
 
   def self.average_age
-    average(:age)
+    average(:age).round(2)
   end
 
   def self.unique_cities
     distinct.pluck(:city)
   end
 
-  def self.total_comedian_specials
-    binding.pry
-  end
 end

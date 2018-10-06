@@ -6,4 +6,8 @@ class Special < ActiveRecord::Base
       average(:length)
     end
 
+    def self.comedian_id
+      pluck(:comedian_id)
+    end
+
 end

@@ -1,5 +1,17 @@
+<div class="top_header">
+  <h2 align = "center"> Comedians </h2>
+</div>
+
 <ul id="comedians">
+<div id="statistics" class=statistics>
+  <h2 align = "center"> Statistics</h2>
+  <h1 align = "left">Average Age: <%= @comedians.average_age %></h1>
+  <h1 align = "left">Average Special Length: <%= @specials.average_run_length %> minutes</h1>
+  <h1 align = "left">Cities: <%=@comedians.unique_cities.join(", ")%></h1>
+  <h1 align = "left">Total Specials: <%= @specials.count%></h1>
+</div>
 <main>
+
   <% @comedians.each do |comedian| %>
     <div class="grid_block">
        <h1><%= comedian.name %></h1>

@@ -9,17 +9,19 @@ class LaughTracksApp < Sinatra::Base
     else
       @comedians = Comedian.all
     end
+    @specials = Special.where(comedian_id: @comedians.pluck(:id))
     erb :'comedian/index'
   end
 
-  # get '/comedians?age=34' do
-  #   @comedians = Comedian.all
-  #   erb :'comedian/34age'
-  # end
+  get '/comedians/new' do
+    erb :'comedian/new'
+  end
 
-  # put '/comedians?age=34' do
-  #   @comedians = Comedian.all
-  #   erb :'comedian/34age'
-  # end
+  post '/comedians' do
+  comedian = Comedian.create(params[:comedian])
+  redirect "/comedians"
+  end
+
+
 
 end
