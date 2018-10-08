@@ -18,10 +18,8 @@ class LaughTracksApp < Sinatra::Base
   end
 
   post '/comedians' do
-  comedian = Comedian.create(params[:comedian])
-  redirect "/comedians"
+    comedian = Comedian.create(params[:comedian])
+    redirect "/comedians"
   end
-
-
 
 end

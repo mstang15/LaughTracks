@@ -35,7 +35,10 @@ RSpec.describe Comedian do
         steve = Comedian.create(name: "Steve ", age: 12, city: "Metairie, PA")
         city_array =[tina.city, kevin.city, zach.city, ellen.city, steve.city]
         unique_city_array = city_array.uniq
-        expect(Comedian.unique_cities).to eq(unique_city_array)
+        expect(Comedian.unique_cities).to include(unique_city_array[0])
+        expect(Comedian.unique_cities).to include(unique_city_array[1])
+        expect(Comedian.unique_cities).to include(unique_city_array[2])
+        expect(Comedian.unique_cities).to include(unique_city_array[3])
       end
     end
   end
